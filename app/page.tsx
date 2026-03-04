@@ -31,8 +31,13 @@ export default function Home() {
 
       {/* HERO */}
       <section className="max-w-2xl w-full py-24 text-left">
+
+        <p className="text-sm font-medium text-gray-500 mb-4 tracking-wide">
+        Hverdagsøkonomi, gjort enklere
+        </p>
+
         <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-          En enklere måte å styre hverdagsøkonomien på.
+          Et tall som justerer seg etter forbruket ditt
         </h1>
 
         <p className="text-lg text-gray-600 mb-8">
@@ -43,7 +48,7 @@ export default function Home() {
           href="#signup"
           className="inline-block bg-black text-white px-8 py-4 rounded-xl text-lg hover:opacity-90 transition"
         >
-          Bli med i åpen pilot
+          Få tilgang
         </a>
 
         <p className="text-sm text-gray-500 mt-4">
@@ -110,7 +115,7 @@ export default function Home() {
       {/* PILOT INFO */}
       <section className="max-w-2xl w-full py-16 text-left">
         <h2 className="text-2xl font-semibold mb-6">
-          Hva innebærer piloten?
+          Hva innebærer testen?
         </h2>
 
         <ul className="space-y-3 text-gray-700">
@@ -131,7 +136,7 @@ export default function Home() {
       {/* SIGNUP */}
       <section id="signup" className="max-w-2xl w-full py-24 text-left">
         <h2 className="text-3xl font-bold mb-6">
-          Bli med i åpen pilot
+          Bli med og test!
         </h2>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
