@@ -1,65 +1,126 @@
-import Image from "next/image";
+"use client";
+import { useState } from "react";
 
 export default function Home() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    setStatus("Sender...");
+
+    const res = await fetch("/api/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    if (res.ok) {
+      setStatus("Takk for påmeldingen!");
+      setEmail("");
+    } else {
+      setStatus("Noe gikk galt. Prøv igjen.");
+    }
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="min-h-screen bg-white text-gray-900 flex flex-col items-center px-6">
+
+      {/* HERO */}
+      <section className="max-w-2xl w-full py-24">
+        <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 text-left">
+          Få ett trygt tall å forholde deg til mellom lønninger.
+        </h1>
+
+        <p className="text-lg text-gray-600 mb-8 text-left">
+          HeleMåneden viser hva du trygt kan bruke hver dag og uke – uten kompliserte budsjetter.
+        </p>
+
+        <a
+          href="#signup"
+          className="inline-block bg-black text-white px-8 py-4 rounded-xl text-lg hover:opacity-90 transition"
+        >
+          Bli med i brukertest
+        </a>
+
+        <p className="text-sm text-gray-500 mt-4 text-left">
+          Gratis. Ingen binding. Begrenset antall plasser.
+        </p>
+      </section>
+
+      {/* PROBLEM */}
+      <section className="max-w-xl w-full py-16">
+        <h2 className="text-2xl font-semibold mb-6 text-left">
+          Kjenner du deg igjen?
+        </h2>
+
+        <ul className="space-y-3 text-gray-700 text-left">
+          <li>Du vet ikke helt hva du faktisk kan bruke i dag</li>
+          <li>Du håper det holder til neste lønning</li>
+          <li>Småkjøp skaper større stress enn de burde</li>
+          <li>Du sjekker saldo oftere enn du vil innrømme</li>
+        </ul>
+
+        <p className="mt-8 text-gray-600 text-left">
+          Problemet er ikke viljestyrke. Det er mangel på tydelig struktur.
+        </p>
+      </section>
+
+      {/* LØSNING */}
+      <section className="max-w-xl w-full py-16">
+        <h2 className="text-2xl font-semibold mb-6 text-left">
+          Hva gjør HeleMåneden?
+        </h2>
+
+        <ul className="space-y-3 text-gray-700 text-left">
+          <li>Ett trygt dagstall</li>
+          <li>Ett trygt uketall</li>
+          <li>Oversikt frem til neste lønning</li>
+          <li>Mindre mental belastning</li>
+        </ul>
+      </section>
+
+      {/* SIGNUP */}
+      <section id="signup" className="max-w-xl w-full py-24">
+        <h2 className="text-3xl font-bold mb-6 text-left">
+          Vil du være med i brukertesten?
+        </h2>
+
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Din e-postadresse"
+            className="border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+            required
+          />
+
+          <button
+            type="submit"
+            className="bg-black text-white px-6 py-3 rounded-lg hover:opacity-90 transition"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            Meld meg på
+          </button>
+
+          {status && (
+            <p className="text-sm text-green-600 mt-2">
+              {status}
+            </p>
+          )}
+        </form>
+
+        <p className="text-sm text-gray-500 mt-4 text-left">
+          Vi sender kun informasjon om brukertesten. Ingen spam.
+        </p>
+      </section>
+
+      <footer className="py-10 text-sm text-gray-500 w-full max-w-xl text-left">
+        © {new Date().getFullYear()} HeleMåneden
+      </footer>
+    </main>
   );
 }
