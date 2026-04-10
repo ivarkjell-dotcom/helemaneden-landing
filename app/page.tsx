@@ -77,7 +77,7 @@ export default function Home() {
 
           <div className="flex justify-center md:justify-end">
             <img
-              src="/mockup.png"
+              src="/app.png"
               alt="HeleMåneden app"
               className="max-w-md w-full opacity-95"
             />
