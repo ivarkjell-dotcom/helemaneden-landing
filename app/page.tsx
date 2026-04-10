@@ -152,14 +152,18 @@ export default function Home() {
       </section>
 
       {/* VALUE */}
-      <section className="max-w-3xl mx-auto w-full py-20 text-left">
+      {/* VALUE */}
+      <section className="w-full py-20 bg-[#F5F1EA]">
+      <div className="max-w-3xl mx-auto px-6 text-left">
         <h2 className="text-2xl font-semibold mb-6">
           Hva gir det deg?
         </h2>
 
-        <p className="text-gray-700 leading-relaxed">
-          Det blir enklere å ta valg. Du vet hva du har råd til, og kan bruke penger på det du egentlig vil.
-        </p>
+        <p className="text-gray-800 text-lg leading-relaxed">
+  Det blir enklere å ta valg.  
+  Du vet hva du har råd til, og kan bruke penger på det du egentlig vil.
+</p>
+        </div>
       </section>
 
       {/* FLAKLYPA / TECH */}
