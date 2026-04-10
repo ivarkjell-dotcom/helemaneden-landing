@@ -195,7 +195,6 @@ export default function Home() {
       {/* FLAKLYPA / TECH */}
       <section className="max-w-3xl mx-auto w-full py-20 text-left">
         <p className="text-sm text-gray-500 leading-relaxed">
-          For spesielt interesserte:  
           HeleMåneden er bygget på en helautomatisk, fremtidsfokusert beslutningssmotor  
           som kontinuerlig beregner hva du trygt kan bruke basert på tid, forbruk og tilgjengelige midler.
         </p>
