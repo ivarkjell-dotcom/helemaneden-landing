@@ -60,7 +60,7 @@ export default function Home() {
 
             <p className="text-lg text-gray-600 mb-4 max-w-sm">
               Bruk penger med trygghet.  
-              Se hva du kan bruke – i dag og denne uken.
+              Se hva du kan bruke, i dag og denne uken.
             </p>
 
             <p className="text-gray-500 mb-4 max-w-sm">
@@ -86,10 +86,10 @@ export default function Home() {
         </div>
 
         {/* SCROLL INDICATOR */}
-        <div className="flex justify-center -mt-6 mb-4">
-  <div className="animate-bounce text-gray-400 text-sm">
-    ↓
-  </div>
+        <div className="flex justify-center -mt-20 mb-2">
+  <div className="animate-bounce text-gray-400 text-lg opacity-70">
+  ↓
+</div>
 </div>
 
       </section>
@@ -109,19 +109,19 @@ export default function Home() {
       </section>
 
       {/* INSIGHT */}
-      <section className="w-full py-20 bg-gray-900 text-white px-6">
-        <div className="max-w-3xl mx-auto text-left">
-          <h2 className="text-2xl font-semibold mb-6">
-            Det som mangler er ikke kontroll
-          </h2>
+<section className="w-full py-20 bg-[#1F2A2A] text-white px-6">
+  <div className="max-w-3xl mx-auto text-left">
+    <h2 className="text-2xl font-semibold mb-6">
+      Det mangler ikke kontroll
+    </h2>
 
-          <p className="text-gray-300 leading-relaxed">
-            Det som mangler er trygghet i øyeblikket du skal ta et valg.  
-            Når du vet hva du trygt kan bruke, blir det enklere å bestemme seg.  
-            Du slipper å lure, og slipper å angre.
-          </p>
-        </div>
-      </section>
+    <p className="text-gray-300 leading-relaxed">
+      Det som mangler er trygghet i øyeblikket du skal ta et valg.  
+      Når du vet hva du trygt kan bruke, blir det enklere å bestemme seg.  
+      Du slipper å lure, og slipper å angre.
+    </p>
+  </div>
+</section>
 
       {/* HOW IT WORKS */}
       <section className="max-w-3xl mx-auto w-full py-20 text-left">
@@ -170,7 +170,7 @@ export default function Home() {
       <section className="max-w-3xl mx-auto w-full py-20 text-left">
         <p className="text-sm text-gray-500 leading-relaxed">
           For spesielt interesserte:  
-          HeleMåneden er bygget på en helautomatisk, fremtidsfokusert beslutnings- og likviditetsmotor  
+          HeleMåneden er bygget på en helautomatisk, fremtidsfokusert beslutningssmotor  
           som kontinuerlig beregner hva du trygt kan bruke basert på tid, forbruk og tilgjengelige midler.
         </p>
       </section>
