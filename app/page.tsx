@@ -47,7 +47,7 @@ export default function Home() {
 
       {/* HERO */}
       <section className="w-full bg-gradient-to-b from-white via-[#EAF6F5] to-[#F8FBFB]">
-        <div className="max-w-5xl mx-auto px-6 py-20 md:py-24 grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-5xl mx-auto px-6 py-16 md:py-20 grid md:grid-cols-2 gap-8 items-center">
 
           <div className="text-left">
             <p className="text-sm font-medium text-gray-500 mb-4 tracking-wide">
@@ -63,7 +63,7 @@ export default function Home() {
               Se hva du kan bruke – i dag og denne uken.
             </p>
 
-            <p className="text-gray-500 mb-6 max-w-sm">
+            <p className="text-gray-500 mb-4 max-w-sm">
               HeleMåneden hjelper deg å se fremtiden basert på din økonomiske nåtid.
             </p>
 
@@ -79,18 +79,18 @@ export default function Home() {
             <img
               src="/app.png"
               alt="HeleMåneden app"
-              className="max-w-md w-full opacity-95"
+              className="max-w-md w-full opacity-95 -mt-4 md:mt-0"
             />
           </div>
 
         </div>
 
         {/* SCROLL INDICATOR */}
-        <div className="flex justify-center pb-6">
-          <div className="animate-bounce text-gray-400 text-sm">
-            ↓
-          </div>
-        </div>
+        <div className="flex justify-center -mt-6 mb-4">
+  <div className="animate-bounce text-gray-400 text-sm">
+    ↓
+  </div>
+</div>
 
       </section>
 
