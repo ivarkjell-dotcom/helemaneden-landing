@@ -129,22 +129,48 @@ export default function Home() {
           Slik fungerer det
         </h2>
 
-        <div className="space-y-8 text-gray-800">
-          <div>
-            <h3 className="font-semibold mb-2">1. Skill ut det faste først</h3>
-            <p>Sett av penger til faste utgifter når du får lønn.</p>
-          </div>
+        <div className="space-y-10 text-gray-800">
 
-          <div>
-            <h3 className="font-semibold mb-2">2. Se hva som er trygt å bruke</h3>
-            <p>Du får ett konkret beløp for i dag og denne uken.</p>
-          </div>
+  <div>
+    <h3 className="font-semibold mb-1">
+      1. Skill ut det faste først
+    </h3>
+    <p className="mb-2">
+      Sett av penger til faste utgifter, og regninger du vet kommer, når du får lønn.
+    </p>
+    <p className="text-sm text-gray-400">
+      For eksempel husleie, strøm og abonnementer. Ikke glem buffer og sparing
+    </p>
+    <p className="text-sm text-gray-600">
+      Det som er igjen er det du faktisk har til forbruk.
+    </p>
+  </div>
 
-          <div>
-            <h3 className="font-semibold mb-2">3. Følg med, uten å regne</h3>
-            <p>Bruker du mer én dag, justeres resten automatisk.</p>
-          </div>
-        </div>
+  <div>
+    <h3 className="font-semibold mb-1">
+      2. Se hva som er trygt å bruke
+    </h3>
+    <p className="mb-2">
+      Du får ett konkret beløp for i dag og denne uken.
+    </p>
+    <p className="text-sm text-gray-400">
+      Et tall du kan bruke før og etter ukeshandelen, når du står i butikken eller vurderer et kjøp.
+    </p>
+  </div>
+
+  <div>
+    <h3 className="font-semibold mb-1">
+      3. Følg med, uten å regne
+    </h3>
+    <p className="mb-2">
+      Bruker du mer én dag, justeres resten automatisk.
+    </p>
+    <p className="text-sm text-gray-400">
+      Du slipper å regne selv. Tallet oppdaterer seg etter forbruk og tid.
+    </p>
+  </div>
+
+</div>
 
         <p className="mt-8 text-gray-600">
           Enkelt, oversiktlig og forutsigbart.
