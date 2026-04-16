@@ -17,6 +17,12 @@ export const metadata: Metadata = {
   title: "HeleMåneden",
   description: "Hva kan du trygt bruke i dag?",
 
+  icons: {
+    icon: "/icon-512.png",
+    shortcut: "/icon-512.png",
+    apple: "/icon-512.png",
+  },
+
   openGraph: {
     title: "HeleMåneden",
     description: "Få ett konkret svar på hva du kan bruke i dag og denne uken.",
