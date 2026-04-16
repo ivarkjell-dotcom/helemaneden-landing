@@ -236,9 +236,70 @@ export default function Home() {
         </p>
       </section>
 
-      <footer className="py-8 text-sm text-gray-500 max-w-5xl mx-auto text-left">
-        © {new Date().getFullYear()} HeleMåneden
-      </footer>
+      <footer className="w-full border-t border-gray-200 mt-10">
+  <div className="max-w-5xl mx-auto px-6 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+
+    {/* VENSTRE: Brand */}
+    <div>
+      <p className="font-medium text-gray-800 mb-1">
+        HeleMåneden
+      </p>
+      <p className="text-sm text-gray-500">
+        Hverdagsøkonomi, gjort enklere
+      </p>
+    </div>
+
+    {/* MIDTEN: CTA / følelse */}
+    <div className="text-sm text-gray-500">
+      Følg reisen
+    </div>
+
+    {/* HØYRE: Sosiale ikoner */}
+    <div className="flex items-center gap-5">
+
+      {/* LinkedIn */}
+      <a
+        href="https://www.linkedin.com/in/kjellkjellkjell/#:~:text=www.linkedin.com/in/kjellkjellkjell" // bytt hvis nødvendig
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[#63B7AE] hover:opacity-70 transition"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="w-6 h-6"
+        >
+          <path d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6 1.11 6 0 4.88 0 3.5 0 2.12 1.11 1 2.49 1 3.87 1 4.98 2.12 4.98 3.5zM.5 8h4v12h-4V8zm7.5 0h3.8v1.7h.1c.5-.9 1.7-1.9 3.6-1.9 3.8 0 4.5 2.5 4.5 5.7V20h-4v-5.3c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V20h-4V8z" />
+        </svg>
+      </a>
+
+      {/* Instagram */}
+      <a
+        href="https://www.instagram.com/helemaneden/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[#63B7AE] hover:opacity-70 transition"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="w-6 h-6"
+        >
+          <path d="M7.75 2C4.68 2 2.25 4.43 2.25 7.5v9c0 3.07 2.43 5.5 5.5 5.5h8.5c3.07 0 5.5-2.43 5.5-5.5v-9c0-3.07-2.43-5.5-5.5-5.5h-8.5zm0 2h8.5c1.93 0 3.5 1.57 3.5 3.5v9c0 1.93-1.57 3.5-3.5 3.5h-8.5c-1.93 0-3.5-1.57-3.5-3.5v-9c0-1.93 1.57-3.5 3.5-3.5zm8.75 1.5a1 1 0 110 2 1 1 0 010-2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/>
+        </svg>
+      </a>
+
+    </div>
+
+  </div>
+
+  {/* BUNN */}
+  <div className="text-center text-xs text-gray-400 pb-6">
+    © {new Date().getFullYear()} HeleMåneden
+  </div>
+</footer>
 
     </main>
   );
