@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 
 export default function Home() {
@@ -7,7 +8,6 @@ export default function Home() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     setStatus("Sender...");
 
     const res = await fetch("/api/signup", {
@@ -19,7 +19,7 @@ export default function Home() {
     });
 
     if (res.ok) {
-      setStatus("Takk for at du vil være med, vi tar kontakt når testen starter.");
+      setStatus("Takk! Du står nå på listen, og vi tar kontakt når neste versjon er klar.");
       setEmail("");
     } else {
       setStatus("Noe gikk galt, prøv igjen.");
@@ -27,280 +27,242 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen text-gray-900 px-6 bg-gradient-to-b from-white via-gray-50 to-white">
-
-      {/* HEADER */}
-      <header className="sticky top-0 z-50 backdrop-blur bg-white/70 border-b border-gray-200">
-        <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-          
-          <div className="flex items-center gap-2">
-            <img src="/icon-192.png" alt="HeleMåneden" className="h-8 w-8 rounded-md" />
-            <span className="font-semibold text-sm">HeleMåneden</span>
+    <main className="min-h-screen text-[#17201f]">
+      <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/65">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <img src="/icon-192.png" alt="HeleMåneden" className="h-9 w-9 rounded-2xl shadow-md" />
+            <span className="font-semibold text-sm tracking-tight">HeleMåneden</span>
           </div>
 
-          <a href="#signup" className="text-sm font-medium text-gray-700 hover:text-black transition">
+          <a href="#signup" className="hm-chip hover:opacity-80 transition">
             Bli med
           </a>
-
         </div>
       </header>
 
-      {/* HERO */}
-      <section className="w-full bg-gradient-to-b from-white via-[#EAF6F5] to-[#F8FBFB]">
-        <div className="max-w-5xl mx-auto px-6 py-16 md:py-20 grid md:grid-cols-2 gap-8 items-center">
+      <section className="w-full px-6 pt-16 pb-24 md:pt-24 md:pb-32">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <div className="hm-chip mb-7">
+              Vi bygger økonomisk navigasjon for hverdagen
+            </div>
 
-          <div className="text-left">
-            <p className="text-sm font-medium text-gray-500 mb-4 tracking-wide">
-              Hverdagsøkonomi, gjort enklere
-            </p>
-
-            <h1 className="text-4xl md:text-6xl font-semibold leading-[1.1] tracking-tight mb-6">
+            <h1 className="text-4xl md:text-6xl font-semibold leading-[1.05] tracking-tight mb-6">
               Hva kan du trygt bruke i dag?
             </h1>
 
-            <p className="text-lg text-gray-600 mb-4 max-w-sm">
-              Bruk penger med trygghet.  
-              Se hva du kan bruke, i dag og denne uken.
+            <p className="text-lg md:text-xl text-gray-700 mb-4 max-w-md leading-relaxed">
+              Du vet hvor mye penger du har, men vet du hvor mye som er trygt å bruke?
             </p>
 
-            <p className="text-gray-500 mb-4 max-w-sm">
-              HeleMåneden hjelper deg å se fremtiden basert på din økonomiske nåtid.
+            <p className="text-gray-500 mb-8 max-w-md leading-relaxed">
+              HeleMåneden hjelper deg å se hva du kan bruke i dag og denne uken, uten å gå tom før neste lønning.
             </p>
 
-            <a
-              href="#signup"
-              className="inline-block bg-black text-white px-8 py-4 rounded-xl text-lg font-medium transition transform hover:scale-[1.03] active:scale-[0.98]"
-            >
-              Bli med i test
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
+              <a href="#signup" className="hm-button inline-flex items-center justify-center px-8 py-4 text-lg font-medium">
+                Bli med på ventelisten
+              </a>
+
+              <span className="text-sm text-gray-500">
+                Neste versjon er under utvikling
+              </span>
+            </div>
           </div>
 
-          <div className="flex justify-center md:justify-end">
+          <div className="hm-panel p-6 md:p-8">
+            <div className="hm-money-card p-7 md:p-8 mb-8">
+              <p className="text-sm text-gray-500 mb-2">Trygt å bruke i dag</p>
+              <p className="text-5xl md:text-6xl font-semibold tracking-tight mb-3">247 kr</p>
+              <p className="text-sm text-gray-500">
+                Denne uken: <span className="text-[#17201f] font-medium">1 890 kr</span>
+              </p>
+            </div>
+
             <img
               src="/app.png"
               alt="HeleMåneden app"
-              className="max-w-md w-full opacity-95 -mt-4 md:mt-0"
+              className="max-w-md w-full mx-auto opacity-95 drop-shadow-2xl"
             />
           </div>
-
-        </div>
-
-        {/* SCROLL INDICATOR */}
-        <div className="flex justify-center -mt-20 mb-2">
-  <div className="animate-bounce text-gray-400 text-lg opacity-70">
-  ↓
-</div>
-</div>
-
-      </section>
-
-      {/* PROBLEM */}
-      <section className="max-w-3xl mx-auto w-full py-20 text-left">
-        <h2 className="text-2xl font-semibold mb-6">
-          Kjenner du deg igjen?
-        </h2>
-
-        <div className="space-y-3 text-gray-700">
-          <p>Du vet hva som står på konto, men ikke hva som faktisk er trygt å bruke</p>
-          <p>I starten av måneden føles det som du har god råd, mot slutten mindre</p>
-          <p>Små kjøp skaper mer usikkerhet enn de burde</p>
-          <p>Du ønsker bedre kontroll, men mister oversikten underveis</p>
         </div>
       </section>
 
-      {/* INSIGHT */}
-<section className="w-full py-20 bg-[#1F2A2A] text-white px-6">
-  <div className="max-w-3xl mx-auto text-left">
-    <h2 className="text-2xl font-semibold mb-6">
-      Det mangler ikke kontroll
-    </h2>
+      <section className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+        <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
+          <div>
+            <p className="hm-chip mb-6">Problemet</p>
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight leading-tight">
+              Saldoen svarer ikke på det du egentlig burde styre etter
+            </h2>
+          </div>
 
-    <p className="text-gray-300 leading-relaxed">
-      Det som mangler er trygghet i øyeblikket du skal ta et valg.  
-      Når du vet hva du trygt kan bruke, blir det enklere å bestemme seg.  
-      Du slipper å lure, og slipper å angre.
-    </p>
-  </div>
-</section>
-
-      {/* HOW IT WORKS */}
-      <section className="max-w-3xl mx-auto w-full py-20 text-left">
-        <h2 className="text-2xl font-semibold mb-8">
-          Slik fungerer det
-        </h2>
-
-        <div className="space-y-10 text-gray-800">
-
-  <div>
-    <h3 className="font-semibold mb-1">
-      1. Skill ut det faste først
-    </h3>
-    <p className="mb-2">
-      Sett av penger til faste utgifter, og regninger du vet kommer, når du får lønn.
-    </p>
-    <p className="text-sm text-gray-400">
-      For eksempel husleie, strøm og abonnementer. Ikke glem buffer og sparing
-    </p>
-    <p className="text-sm text-gray-600">
-      Det som er igjen er det du faktisk har til forbruk.
-    </p>
-  </div>
-
-  <div>
-    <h3 className="font-semibold mb-1">
-      2. Se hva som er trygt å bruke
-    </h3>
-    <p className="mb-2">
-      Du får ett konkret beløp for i dag og denne uken.
-    </p>
-    <p className="text-sm text-gray-400">
-      Et tall du kan bruke før og etter ukeshandelen, når du står i butikken eller vurderer et kjøp.
-    </p>
-  </div>
-
-  <div>
-    <h3 className="font-semibold mb-1">
-      3. Følg med, uten å regne
-    </h3>
-    <p className="mb-2">
-      Bruker du mer én dag, justeres resten automatisk.
-    </p>
-    <p className="text-sm text-gray-400">
-      Du slipper å regne selv. Tallet oppdaterer seg etter forbruk og tid.
-    </p>
-  </div>
-
-</div>
-
-        <p className="mt-8 text-gray-600">
-          Enkelt, oversiktlig og forutsigbart.
-        </p>
-      </section>
-
-      {/* VALUE */}
-      {/* VALUE */}
-      <section className="w-full py-20 bg-[#F5F1EA]">
-      <div className="max-w-3xl mx-auto px-6 text-left">
-        <h2 className="text-2xl font-semibold mb-6">
-          Hva gir det deg?
-        </h2>
-
-        <p className="text-gray-800 text-lg leading-relaxed">
-  Det blir enklere å ta valg.  
-  Du vet hva du har råd til, og kan bruke penger på det du egentlig vil.
-</p>
+          <div className="grid gap-5">
+            {[
+              "Har jeg egentligråd til dette i dag?",
+              "Hva skjer hvis jeg kjøper dette nå?",
+              "Hvor mye bør være igjen til resten av måneden?",
+              "Kommer jeg til å gå tom før neste lønn?",
+            ].map((text) => (
+              <div key={text} className="hm-card p-6 transition-transform hover:-translate-y-1">
+                <p className="text-gray-700 leading-relaxed">{text}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* FLAKLYPA / TECH */}
-      <section className="max-w-3xl mx-auto w-full py-20 text-left">
-        <p className="text-sm text-gray-500 leading-relaxed">
-          HeleMåneden er bygget på en helautomatisk, fremtidsfokusert beslutningssmotor  
-          som kontinuerlig beregner hva du trygt kan bruke basert på tid, forbruk og tilgjengelige midler.
-        </p>
-      </section>
-
-      {/* SIGNUP */}
-      <section id="signup" className="max-w-3xl mx-auto w-full py-20 text-left">
-        <h2 className="text-3xl font-semibold mb-6">
-          Bli med og test
-        </h2>
-
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md">
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Din e-postadresse"
-            className="border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
-            required
-          />
-
-          <button
-            type="submit"
-            className="bg-black text-white px-6 py-3 rounded-lg font-medium transition transform hover:scale-[1.03]"
-          >
-            Jeg vil bli med
-          </button>
-
-          {status && (
-            <p className="text-sm text-green-600 mt-2">
-              {status}
+      <section className="px-6 py-16 md:py-24">
+        <div className="max-w-6xl mx-auto rounded-[38px] bg-[#1F2A2A] text-white p-9 md:p-16 shadow-[18px_24px_45px_rgba(31,42,42,0.28),-10px_-10px_28px_rgba(255,255,255,0.75)]">
+          <div className="max-w-3xl">
+            <p className="inline-flex rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/80 mb-6 shadow-inner">
+              Innsikten
             </p>
-          )}
-        </form>
 
-        <p className="text-sm text-gray-500 mt-4 max-w-md">
-          Test løsningen gratis fra 1. mai til 30. juni.  
-          Begrenset antall testplasser.
-        </p>
+            <h2 className="text-3xl md:text-4xl font-semibold mb-6 tracking-tight">
+              Det handler ikke bare om budsjett
+            </h2>
+
+            <p className="text-white/75 text-lg leading-relaxed">
+              Mange sjekker saldoen før de handler. Problemet er at saldoen ikke forteller hva som er trygt å bruke.
+              Derfor ender mange opp med å gjette.
+            </p>
+          </div>
+        </div>
       </section>
 
-      <footer className="w-full border-t border-gray-200 mt-10">
-  <div className="max-w-5xl mx-auto px-6 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <section className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+        <div className="mb-12">
+          <p className="hm-chip mb-6">Slik fungerer det</p>
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
+            HeleMåneden gjør saldo om til retning
+          </h2>
+        </div>
 
-    {/* VENSTRE: Brand */}
-    <div>
-      <p className="font-medium text-gray-800 mb-1">
-        HeleMåneden
-      </p>
-      <p className="text-sm text-gray-500">
-        Hverdagsøkonomi, gjort enklere
-      </p>
-    </div>
+        <div className="grid md:grid-cols-3 gap-7">
+          {[
+            {
+              number: "1",
+              title: "Start med pengene du faktisk kan bruke",
+              text: "Når faste utgifter, sparing og buffer er satt til side, ser du hva som er igjen til hverdagen.",
+            },
+            {
+              number: "2",
+              title: "Få et trygt dagsbeløp",
+              text: "HeleMåneden fordeler pengene over tiden frem til neste inntekt. Du får ett tall for i dag og ett for denne uken.",
+            },
+            {
+              number: "3",
+              title: "Justeres når livet skjer",
+              text: "Bruker du mer én dag, justeres resten. Bruker du mindre, får du mer rom senere.",
+            },
+          ].map((item) => (
+            <div key={item.number} className="hm-card p-8 transition-transform hover:-translate-y-1">
+              <div className="h-11 w-11 rounded-2xl bg-[#BFF4DF] flex items-center justify-center font-semibold mb-6 shadow-[6px_8px_14px_rgba(31,42,42,0.14),-5px_-5px_12px_rgba(255,255,255,0.95)]">
+                {item.number}
+              </div>
+              <h3 className="font-semibold text-lg mb-4">{item.title}</h3>
+              <p className="text-gray-600 leading-relaxed">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-    {/* MIDTEN: CTA / følelse */}
-    <div className="text-sm text-gray-500">
-      Følg reisen
-    </div>
+      <section className="px-6 py-16 md:py-24">
+        <div className="max-w-6xl mx-auto hm-panel p-9 md:p-16">
+          <div className="max-w-3xl">
+            <p className="hm-chip mb-6">Verdien</p>
 
-    {/* HØYRE: Sosiale ikoner */}
-    <div className="flex items-center gap-5">
+            <h2 className="text-3xl md:text-4xl font-semibold mb-6 tracking-tight">
+              Trygghet mellom lønningene
+            </h2>
 
-      {/* LinkedIn */}
-      <a
-        href="https://www.linkedin.com/in/kjellkjellkjell/#:~:text=www.linkedin.com/in/kjellkjellkjell" // bytt hvis nødvendig
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-[#63B7AE] hover:opacity-70 transition"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className="w-6 h-6"
-        >
-          <path d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6 1.11 6 0 4.88 0 3.5 0 2.12 1.11 1 2.49 1 3.87 1 4.98 2.12 4.98 3.5zM.5 8h4v12h-4V8zm7.5 0h3.8v1.7h.1c.5-.9 1.7-1.9 3.6-1.9 3.8 0 4.5 2.5 4.5 5.7V20h-4v-5.3c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V20h-4V8z" />
-        </svg>
-      </a>
+            <p className="text-gray-700 text-lg leading-relaxed">
+              Målet er ikke å begrense deg. Målet er å gi deg trygghet til å bruke penger på det du faktisk vil — med bedre oversikt over resten av måneden.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      {/* Instagram */}
-      <a
-        href="https://www.instagram.com/helemaneden/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-[#63B7AE] hover:opacity-70 transition"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className="w-6 h-6"
-        >
-          <path d="M7.75 2C4.68 2 2.25 4.43 2.25 7.5v9c0 3.07 2.43 5.5 5.5 5.5h8.5c3.07 0 5.5-2.43 5.5-5.5v-9c0-3.07-2.43-5.5-5.5-5.5h-8.5zm0 2h8.5c1.93 0 3.5 1.57 3.5 3.5v9c0 1.93-1.57 3.5-3.5 3.5h-8.5c-1.93 0-3.5-1.57-3.5-3.5v-9c0-1.93 1.57-3.5 3.5-3.5zm8.75 1.5a1 1 0 110 2 1 1 0 010-2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/>
-        </svg>
-      </a>
+      <section className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+        <div className="hm-card p-8 md:p-11 max-w-3xl">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-5">
+            Et tydeligere beslutningssignal
+          </h2>
 
-    </div>
+          <p className="text-gray-600 leading-relaxed">
+            HeleMåneden bygger på en fremtidsrettet beregning som følger tid, forbruk og tilgjengelige penger.
+            I stedet for bare å vise hva som har skjedd, hjelper HeleMåneden deg å forstå hva som er trygt videre.
+          </p>
+        </div>
+      </section>
 
-  </div>
+      <section id="signup" className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+        <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
+          <div>
+            <p className="hm-chip mb-6">Venteliste</p>
 
-  {/* BUNN */}
-  <div className="text-center text-xs text-gray-400 pb-6">
-    © {new Date().getFullYear()} HeleMåneden
-  </div>
-</footer>
+            <h2 className="text-3xl md:text-4xl font-semibold mb-6 tracking-tight">
+              Bli med på reisen
+            </h2>
 
+            <p className="text-gray-600 leading-relaxed max-w-md">
+              Vi utvikler nå neste versjon av HeleMåneden. Legg igjen e-postadressen din hvis du vil få tidlig tilgang, teste nye versjoner eller følge reisen videre.
+            </p>
+          </div>
+
+          <div className="hm-card p-7 md:p-9">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Din e-postadresse"
+                className="hm-input px-5 py-4 text-base"
+                required
+              />
+
+              <button type="submit" className="hm-button px-6 py-4 font-medium">
+                Jeg vil bli med
+              </button>
+
+              {status && <p className="text-sm text-[#2F6F5E] mt-2">{status}</p>}
+            </form>
+
+            <p className="text-sm text-gray-500 mt-6 leading-relaxed">
+              HeleMåneden utvikles videre basert på brukertesting og innsikt fra ekte hverdagsøkonomi.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer className="w-full mt-10">
+        <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div>
+            <p className="font-semibold text-gray-800 mb-1">HeleMåneden</p>
+            <p className="text-sm text-gray-500">
+              Vi bygger økonomisk navigasjon for hverdagen
+            </p>
+          </div>
+
+          <div className="text-sm text-gray-500">Følg reisen</div>
+
+          <div className="flex items-center gap-5">
+            <a href="https://www.linkedin.com/in/kjellkjellkjell/" target="_blank" rel="noopener noreferrer" className="text-[#63B7AE] hover:opacity-70 transition">
+              LinkedIn
+            </a>
+
+            <a href="https://www.instagram.com/helemaneden/" target="_blank" rel="noopener noreferrer" className="text-[#63B7AE] hover:opacity-70 transition">
+              Instagram
+            </a>
+          </div>
+        </div>
+
+        <div className="text-center text-xs text-gray-400 pb-6">
+          © {new Date().getFullYear()} HeleMåneden
+        </div>
+      </footer>
     </main>
   );
 }

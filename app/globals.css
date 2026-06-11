@@ -1,8 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #e6e4dd;
+  --foreground: #17201f;
+
+  --hm-mint: #bff4df;
+  --hm-mint-strong: #9eeccc;
+  --hm-dark: #1f2a2a;
+
+  --hm-shadow-raised:
+    4px 5px 7px rgba(0, 0, 0, 0.22),
+    18px 22px 38px rgba(0, 0, 0, 0.18),
+    -8px -8px 18px rgba(255, 255, 255, 0.95),
+    inset 2px 2px 3px rgba(255, 255, 255, 0.95),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.08);
+
+  --hm-shadow-soft:
+    3px 4px 5px rgba(0, 0, 0, 0.22),
+    9px 10px 18px rgba(0, 0, 0, 0.14),
+    -5px -5px 12px rgba(255, 255, 255, 0.85),
+    inset 2px 2px 3px rgba(255, 255, 255, 0.75),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.08);
+
+  --hm-shadow-pressed:
+    inset 7px 7px 14px rgba(0, 0, 0, 0.16),
+    inset -7px -7px 14px rgba(255, 255, 255, 0.92);
 }
 
 @theme inline {
@@ -12,15 +34,121 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at 14% 16%, rgba(191, 244, 223, 0.22), transparent 32rem),
+    radial-gradient(circle at 86% 10%, rgba(255, 255, 255, 0.45), transparent 28rem),
+    linear-gradient(180deg, #ebe9e3 0%, #e1dfd8 52%, #ebe9e3 100%);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Main lifted component */
+.hm-card {
+  background: linear-gradient(145deg, #fbfaf6 0%, #f0eee8 100%);
+  border: none;
+  border-radius: 28px;
+  box-shadow: var(--hm-shadow-raised);
+}
+
+/* Large surface / hero panel */
+.hm-panel {
+  background:
+    radial-gradient(circle at top left, rgba(191, 244, 223, 0.18), transparent 17rem),
+    linear-gradient(145deg, #fbfaf6 0%, #ecebe5 100%);
+  border: none;
+  border-radius: 36px;
+  box-shadow:
+    6px 7px 10px rgba(0, 0, 0, 0.18),
+    28px 34px 58px rgba(0, 0, 0, 0.18),
+    -12px -12px 28px rgba(255, 255, 255, 0.92),
+    inset 2px 2px 3px rgba(255, 255, 255, 0.95),
+    inset -3px -3px 6px rgba(0, 0, 0, 0.07);
+}
+
+/* Dark CTA */
+.hm-button {
+  background: linear-gradient(145deg, #2b3b38 0%, #17201f 100%);
+  color: white;
+  border: none;
+  border-radius: 22px;
+  box-shadow:
+    4px 5px 6px rgba(0, 0, 0, 0.32),
+    14px 18px 28px rgba(0, 0, 0, 0.22),
+    -7px -7px 16px rgba(255, 255, 255, 0.55),
+    inset 2px 2px 3px rgba(255, 255, 255, 0.13),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.25);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.hm-button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    5px 6px 8px rgba(0, 0, 0, 0.34),
+    18px 22px 34px rgba(0, 0, 0, 0.24),
+    -8px -8px 18px rgba(255, 255, 255, 0.6),
+    inset 2px 2px 3px rgba(255, 255, 255, 0.15),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.26);
+}
+
+.hm-button:active {
+  transform: scale(0.98);
+}
+
+/* Mint pill */
+.hm-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: linear-gradient(145deg, #d9faef 0%, #95e8c7 100%);
+  border: none;
+  color: #21312f;
+  padding: 0.55rem 0.95rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  box-shadow: var(--hm-shadow-soft);
+}
+
+/* Input with pressed/inset feeling */
+.hm-input {
+  background: linear-gradient(145deg, #fbfaf6 0%, #f0eee8 100%);
+  border: none;
+  border-radius: 22px;
+  box-shadow: var(--hm-shadow-pressed);
+}
+
+.hm-input:focus {
+  outline: none;
+  box-shadow:
+    0 0 0 5px rgba(191, 244, 223, 0.65),
+    var(--hm-shadow-pressed);
+}
+
+/* Money card */
+.hm-money-card {
+  background: linear-gradient(145deg, #fbfaf6 0%, #f0eee8 100%);
+  border: none;
+  border-radius: 28px;
+  box-shadow: var(--hm-shadow-raised);
+}
+
+/* Dark insight block */
+.hm-dark-panel {
+  background: linear-gradient(145deg, #263533 0%, #17201f 100%);
+  border: none;
+  border-radius: 36px;
+  box-shadow:
+    6px 7px 10px rgba(0, 0, 0, 0.32),
+    28px 34px 60px rgba(0, 0, 0, 0.32),
+    -12px -12px 28px rgba(255, 255, 255, 0.38),
+    inset 2px 2px 3px rgba(255, 255, 255, 0.13),
+    inset -3px -3px 6px rgba(0, 0, 0, 0.28);
 }

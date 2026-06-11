@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "HeleMåneden",
-  description: "Hva kan du trygt bruke i dag?",
+  description: "Vi bygger økonomisk navigasjon for hverdagen.",
 
   icons: {
     icon: "/icon-512.png",
@@ -25,7 +25,8 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: "HeleMåneden",
-    description: "Få ett konkret svar på hva du kan bruke i dag og denne uken.",
+    description:
+      "Se hva du trygt kan bruke i dag og denne uken — uten å gå tom før neste lønning.",
     url: "https://helemaneden.no",
     siteName: "HeleMåneden",
     images: [
@@ -46,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="nb">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
