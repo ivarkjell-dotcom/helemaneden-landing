@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const [status, setStatus] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -15,12 +16,15 @@ export default function Home() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email }),
+      body: JSON.stringify({ email, message }),
     });
 
     if (res.ok) {
-      setStatus("Takk! Du står nå på listen, og vi tar kontakt når neste versjon er klar.");
+      setStatus(
+        "Takk! Du står nå på listen, og vi tar kontakt når neste versjon er klar."
+      );
       setEmail("");
+      setMessage("");
     } else {
       setStatus("Noe gikk galt, prøv igjen.");
     }
@@ -28,15 +32,21 @@ export default function Home() {
 
   return (
     <main className="min-h-screen text-[#17201f]">
-      <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/65">
+      <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/45">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="/icon-192.png" alt="HeleMåneden" className="h-9 w-9 rounded-2xl shadow-md" />
-            <span className="font-semibold text-sm tracking-tight">HeleMåneden</span>
+            <img
+              src="/icon-192.png"
+              alt="HeleMåneden"
+              className="h-9 w-9 rounded-[18px] shadow-md"
+            />
+            <span className="font-semibold text-sm tracking-tight">
+              HeleMåneden
+            </span>
           </div>
 
-          <a href="#signup" className="hm-chip hover:opacity-80 transition">
-            Bli med
+          <a href="#signup" className="hm-chip px-6 hover:opacity-90 transition">
+            Kontakt oss
           </a>
         </div>
       </header>
@@ -53,15 +63,20 @@ export default function Home() {
             </h1>
 
             <p className="text-lg md:text-xl text-gray-700 mb-4 max-w-md leading-relaxed">
-              Du vet hvor mye penger du har, men vet du hvor mye som er trygt å bruke?
+              Du vet hvor mye penger du har, men vet du hvor mye som er trygt å
+              bruke?
             </p>
 
             <p className="text-gray-500 mb-8 max-w-md leading-relaxed">
-              HeleMåneden hjelper deg å se hva du kan bruke i dag og denne uken, uten å gå tom før neste lønning.
+              HeleMåneden hjelper deg å se hva du kan bruke i dag og denne uken,
+              uten å gå tom før neste lønning.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
-              <a href="#signup" className="hm-button inline-flex items-center justify-center px-8 py-4 text-lg font-medium">
+              <a
+                href="#signup"
+                className="hm-button inline-flex items-center justify-center px-9 py-4 text-lg font-medium"
+              >
                 Bli med på ventelisten
               </a>
 
@@ -71,14 +86,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hm-panel p-6 md:p-8">
-            <div className="hm-money-card p-7 md:p-8 mb-8">
-              <p className="text-sm text-gray-500 mb-2">Trygt å bruke i dag</p>
-              <p className="text-5xl md:text-6xl font-semibold tracking-tight mb-3">247 kr</p>
-              <p className="text-sm text-gray-500">
-                Denne uken: <span className="text-[#17201f] font-medium">1 890 kr</span>
-              </p>
-            </div>
+          <div className="hm-panel p-7 md:p-9">
+            
 
             <img
               src="/app.png"
@@ -98,14 +107,17 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid gap-5">
+          <div className="grid gap-6">
             {[
-              "Har jeg egentligråd til dette i dag?",
+              "Har jeg egentlig råd til dette i dag?",
               "Hva skjer hvis jeg kjøper dette nå?",
               "Hvor mye bør være igjen til resten av måneden?",
               "Kommer jeg til å gå tom før neste lønn?",
             ].map((text) => (
-              <div key={text} className="hm-card p-6 transition-transform hover:-translate-y-1">
+              <div
+                key={text}
+                className="hm-card p-6 md:p-7 transition-transform hover:-translate-y-1"
+              >
                 <p className="text-gray-700 leading-relaxed">{text}</p>
               </div>
             ))}
@@ -114,19 +126,18 @@ export default function Home() {
       </section>
 
       <section className="px-6 py-16 md:py-24">
-        <div className="max-w-6xl mx-auto rounded-[38px] bg-[#1F2A2A] text-white p-9 md:p-16 shadow-[18px_24px_45px_rgba(31,42,42,0.28),-10px_-10px_28px_rgba(255,255,255,0.75)]">
+        <div className="max-w-6xl mx-auto hm-dark-card p-9 md:p-12">
           <div className="max-w-3xl">
-            <p className="inline-flex rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/80 mb-6 shadow-inner">
-              Innsikten
-            </p>
+            <p className="hm-dark-pill mb-6">Innsikten</p>
 
             <h2 className="text-3xl md:text-4xl font-semibold mb-6 tracking-tight">
               Det handler ikke bare om budsjett
             </h2>
 
             <p className="text-white/75 text-lg leading-relaxed">
-              Mange sjekker saldoen før de handler. Problemet er at saldoen ikke forteller hva som er trygt å bruke.
-              Derfor ender mange opp med å gjette.
+              Mange sjekker saldoen før de handler. Problemet er at saldoen ikke
+              forteller hva som er trygt å bruke. Derfor ender mange opp med å
+              gjette.
             </p>
           </div>
         </div>
@@ -158,10 +169,11 @@ export default function Home() {
               text: "Bruker du mer én dag, justeres resten. Bruker du mindre, får du mer rom senere.",
             },
           ].map((item) => (
-            <div key={item.number} className="hm-card p-8 transition-transform hover:-translate-y-1">
-              <div className="h-11 w-11 rounded-2xl bg-[#BFF4DF] flex items-center justify-center font-semibold mb-6 shadow-[6px_8px_14px_rgba(31,42,42,0.14),-5px_-5px_12px_rgba(255,255,255,0.95)]">
-                {item.number}
-              </div>
+            <div
+              key={item.number}
+              className="hm-card p-8 transition-transform hover:-translate-y-1"
+            >
+              <div className="hm-step-badge mb-6">{item.number}</div>
               <h3 className="font-semibold text-lg mb-4">{item.title}</h3>
               <p className="text-gray-600 leading-relaxed">{item.text}</p>
             </div>
@@ -179,7 +191,9 @@ export default function Home() {
             </h2>
 
             <p className="text-gray-700 text-lg leading-relaxed">
-              Målet er ikke å begrense deg. Målet er å gi deg trygghet til å bruke penger på det du faktisk vil — med bedre oversikt over resten av måneden.
+              Målet er ikke å begrense deg. Målet er å gi deg trygghet til å
+              bruke penger på det du faktisk vil, med bedre oversikt over
+              resten av måneden.
             </p>
           </div>
         </div>
@@ -192,8 +206,9 @@ export default function Home() {
           </h2>
 
           <p className="text-gray-600 leading-relaxed">
-            HeleMåneden bygger på en fremtidsrettet beregning som følger tid, forbruk og tilgjengelige penger.
-            I stedet for bare å vise hva som har skjedd, hjelper HeleMåneden deg å forstå hva som er trygt videre.
+            HeleMåneden bygger på en fremtidsrettet beregning som følger tid,
+            forbruk og tilgjengelige penger. I stedet for bare å vise hva som
+            har skjedd, hjelper HeleMåneden deg å forstå hva som er trygt videre.
           </p>
         </div>
       </section>
@@ -208,30 +223,45 @@ export default function Home() {
             </h2>
 
             <p className="text-gray-600 leading-relaxed max-w-md">
-              Vi utvikler nå neste versjon av HeleMåneden. Legg igjen e-postadressen din hvis du vil få tidlig tilgang, teste nye versjoner eller følge reisen videre.
+              Vi utvikler nå neste versjon av HeleMåneden. Legg igjen
+              e-postadressen din hvis du vil få tidlig tilgang, teste nye
+              versjoner eller følge reisen videre.
             </p>
           </div>
 
           <div className="hm-card p-7 md:p-9">
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Din e-postadresse"
-                className="hm-input px-5 py-4 text-base"
-                required
-              />
+  type="email"
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+  placeholder="Din e-postadresse"
+  className="hm-input px-5 py-4 text-base"
+  required
+/>
 
-              <button type="submit" className="hm-button px-6 py-4 font-medium">
-                Jeg vil bli med
-              </button>
+<textarea
+  value={message}
+  onChange={(e) => setMessage(e.target.value)}
+  placeholder="Vil du skrive en kort melding?"
+  className="hm-input px-5 py-4 text-base min-h-28 resize-none"
+></textarea>
 
-              {status && <p className="text-sm text-[#2F6F5E] mt-2">{status}</p>}
+<button
+  type="submit"
+  className="hm-button px-6 py-4 font-medium"
+>
+  Send
+</button>
+
+              {status && (
+                <p className="text-sm text-[#2F6F5E] mt-2">{status}</p>
+              )}
             </form>
 
             <p className="text-sm text-gray-500 mt-6 leading-relaxed">
-              HeleMåneden utvikles videre basert på brukertesting og innsikt fra ekte hverdagsøkonomi.
+              HeleMåneden utvikles videre basert på brukertesting og innsikt fra
+              ekte hverdagsøkonomi.
             </p>
           </div>
         </div>
@@ -249,11 +279,21 @@ export default function Home() {
           <div className="text-sm text-gray-500">Følg reisen</div>
 
           <div className="flex items-center gap-5">
-            <a href="https://www.linkedin.com/in/kjellkjellkjell/" target="_blank" rel="noopener noreferrer" className="text-[#63B7AE] hover:opacity-70 transition">
+            <a
+              href="https://www.linkedin.com/in/kjellkjellkjell/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#63B7AE] hover:opacity-70 transition"
+            >
               LinkedIn
             </a>
 
-            <a href="https://www.instagram.com/helemaneden/" target="_blank" rel="noopener noreferrer" className="text-[#63B7AE] hover:opacity-70 transition">
+            <a
+              href="https://www.instagram.com/helemaneden/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#63B7AE] hover:opacity-70 transition"
+            >
               Instagram
             </a>
           </div>
